@@ -12,10 +12,10 @@ module ActiveMerchant #:nodoc:
       # JRuby chokes here
       # undef_method :authorize, :capture, :void, :credit
       
-      undef_method :authorize
-      undef_method :capture
-      undef_method :void
-      undef_method :credit
+      # undef_method :authorize
+      # undef_method :capture
+      # undef_method :void
+      # undef_method :credit
       
       def test?
         Base.gateway_mode == :test
