@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/authorize_net'
 
 module ActiveMerchant #:nodoc:
   module Billing #:nodoc:
-    class RedfinGateway < AuthorizeNetGateway
+    class Redfin < AuthorizeNetGateway
       self.live_url = self.test_url = 'https://payment.redfinnet.com/aim/transact.aspx'
       
       self.homepage_url = 'http://www.redfinnet.com/'
