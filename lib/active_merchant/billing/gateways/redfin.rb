@@ -23,7 +23,8 @@ module ActiveMerchant #:nodoc:
       
       private
       def split(response)
-        response.split(',')
+        logger.debug("Response Text: #{response}")
+        response.split('$,$')
       end
     end
   end
