@@ -22,9 +22,36 @@ module ActiveMerchant #:nodoc:
       end
       
       private
+      
+      
+      def success?(response)
+        response[:response_code].to_i == APPROVED
+      end
+
+      def fraud_review?(response)
+        response[:response_code].to_i == FRAUD_REVIEW
+      end
+
+      
+      
       def split(response)
         puts("Response Text: #{response}")
         response.split('$,$')
+      end
+      
+      def parse(body)
+        fields = split(body)
+
+        results = {
+          :response_code => fields[RESPONSE_CODE],
+          :response_reason_code => fields[RESPONSE_REASON_CODE],
+          :response_reason_text => fields[RESPONSE_REASON_TEXT],
+          :avs_result_code => fields[AVS_RESULT_CODE],
+          :transaction_id => fields[TRANSACTION_ID],
+          :card_code => fields[CARD_CODE_RESPONSE_CODE],
+          :full_body => body
+        }
+        results
       end
     end
   end
