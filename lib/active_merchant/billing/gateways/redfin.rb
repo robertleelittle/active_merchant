@@ -35,7 +35,7 @@ module ActiveMerchant #:nodoc:
 
 
       def split(response)
-        puts("Response Text: #{response}")
+        # puts("Response Text: #{response}")
         response[1,(response.length-2)].split("$,$")
         # response.split('$,$')
       end
